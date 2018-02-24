@@ -8,9 +8,31 @@
       "kernelType" : "norm",
       "kernelID" : 1,
       "baseKernel" : {
-        "kernelType" : "linear",
+        "kernelType" : "sptk",
         "kernelID" : 2,
-        "representation" : "bow",
+        "representation" : "clct",
+        "mu" : 0.4,
+        "lambda" : 0.4,
+        "terminalFactor" : 1.0,
+        "similarityThreshold" : 0.01,
+        "nodeSimilarity" : {
+          "type" : "CompositionalNodeSimilaritySum",
+          "enrichmentName" : "COMP_SUM",
+          "wordspace" : {
+            "type" : "wordspace",
+            "matrixPath" : "src/main/resources/wordspace/wordspace_qc.txt.gz",
+            "zeroVector" : {
+              "type" : "DV",
+              "content" : "0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0"
+            }
+          },
+          "allowDifferentPOS" : false,
+          "ignorePosInLemmaMatches" : false,
+          "posRestriction" : true,
+          "syntacticRestriction" : false,
+          "representationToBeEnriched" : "clct"
+        },
+        "maxSubseqLeng" : 20,
         "squaredNormCache" : {
           "cacheType" : "fixIndex",
           "cacheID" : 3,

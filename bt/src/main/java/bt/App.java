@@ -8,6 +8,9 @@ import it.uniroma2.sag.kelp.data.label.Label;
 import it.uniroma2.sag.kelp.data.manipulator.LexicalStructureElementManipulator;
 import it.uniroma2.sag.kelp.data.representation.structure.similarity.LexicalStructureElementSimilarity;
 import it.uniroma2.sag.kelp.data.representation.structure.similarity.compositional.sum.CompositionalNodeSimilaritySum;
+import it.uniroma2.sag.kelp.data.representation.structure.*;
+import it.uniroma2.sag.kelp.data.representation.tree.TreeRepresentation;
+import it.uniroma2.sag.kelp.data.representation.tree.node.TreeNode;
 import it.uniroma2.sag.kelp.kernel.Kernel;
 import it.uniroma2.sag.kelp.kernel.cache.FixIndexSquaredNormCache;
 import it.uniroma2.sag.kelp.kernel.cache.FixSizeKernelCache;
@@ -48,7 +51,7 @@ public class App {
 			 * - sptk: a Smoothed Partial Tree Kernel
 			 * - csptk: Compositionally Smoothed Partial Tree Kernel
 			 */
-			String kernelId = "bow";
+			String kernelId = "csptk";
 
 			/*
 			 * print some statistics
@@ -276,7 +279,22 @@ public class App {
 			// and modifier, as discussed in [Annesi et al(2014)]
 			CompositionalNodeSimilaritySum compSS = new CompositionalNodeSimilaritySum();
 			compSS.setWordspace(wordspace);
-			compSS.setRepresentationToBeEnriched(treeRepresentationName);
+            compSS.setRepresentationToBeEnriched(treeRepresentationName);
+            
+            /*
+            // TEMP
+            for (Example ex : trainingSet.getExamples()) {
+                TreeRepresentation tree = (TreeRepresentation) ex.getRepresentation("clct");
+                for (TreeNode node : tree.getAllNodes()) {
+                    StructureElement el = node.getContent();
+                    if (el instanceof CompositionalStructureElement) {
+                        System.out.println("DEBUG: " + el.getTextFromData());
+                    }
+                }
+            }
+            System.exit(0);
+            */
+
 			// This manipulator assigns vectors to "compositional syntactic"
 			// nodes. It allows to speed-up computations: otherwise each
 			// time the similarity between two nodes is evaluated, the
