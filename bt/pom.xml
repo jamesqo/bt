@@ -10,10 +10,16 @@
 
         <dependencies>
                 <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>3.8.1</version>
-                <scope>test</scope>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>3.8.1</version>
+                        <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                        <groupId>it.uniroma2.sag.kelp</groupId>
+                        <artifactId>kelp-full</artifactId>
+                        <version>2.2.2</version>
                 </dependency>
         </dependencies>
 
@@ -50,5 +56,25 @@
                         <url>http://sag.art.uniroma2.it:8081/artifactory/kelp-release/</url>
                 </repository>
         </repositories>
+
+        <build>
+                <plugins>
+                        <plugin>
+                                <artifactId>maven-compiler-plugin</artifactId>
+                                <version>2.0.2</version>
+                                <configuration>
+                                        <source>1.8</source>
+                                        <target>1.8</target>
+                                </configuration>
+                        </plugin>
+                        <plugin>
+                                <groupId>org.codehaus.mojo</groupId>
+                                <artifactId>exec-maven-plugin</artifactId>
+                                <configuration>
+                                        <mainClass>bt.App</mainClass>
+                                </configuration>
+                        </plugin>
+                </plugins>
+        </build>
 
 </project>
