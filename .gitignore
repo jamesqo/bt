@@ -299,3 +299,5 @@ gradle-app.setting
 
 
 # End of https://www.gitignore.io/api/vim,java,emacs,eclipse,androidstudio,visualstudiocode,gradle
+
+target/
